@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
+import useAuth from "../../../hooks/useAuth";
 
 
 const Navbar = () => {
-    const user=false;
+    const {user,logOut}=useAuth()
     const options= <>
         <li><Link to={'/'} className="font-semibold">Donation Requests</Link></li>
         <li><Link to={'/allcrafts'} className="font-semibold">Blogs</Link></li>
         {/* <li><Link to={`/myitems/${user?.email}`} className="font-semibold">My Art & Craft List</Link></li> */}
     </>
     const handleLogOut=()=>{
-
+        logOut()
+            .then(()=>{
+                alert('logout successfull')
+            })
+            .catch((error)=>{
+                console.log(error.message)
+            })
     }
     return (
         <div>
@@ -50,6 +57,7 @@ const Navbar = () => {
                         </div>
                         <Tooltip anchorSelect="#avater" style={{ backgroundColor: "rgb(241 245 249)", color: "#222" }} clickable>
                             <p className="text-center">{user.displayName}</p>
+                             <Link to={'/dashboard'}><button className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Dashboard</button></Link>
                              <button onClick={handleLogOut} className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Log Out</button>
                         </Tooltip>
                     </div>
