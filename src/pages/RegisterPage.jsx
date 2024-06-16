@@ -3,11 +3,19 @@ import registerAnimation2 from "../../public/registerLootie.json"
 import { useForm } from 'react-hook-form';
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
+
+const imageHostingKey = import.meta.env.VITE_imageHostingKey
+const imageHostingApi= `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
 const RegisterPage = () => {
     const [districts, setDistricts]=useState([])
     const [upazilas, setUpazilas]=useState([])
-    const {signUp}=useContext(AuthContext)
+    const axiosPublic=useAxiosPublic()
+    const navigate= useNavigate()
+    const {signUp,updateUserInfo}=useContext(AuthContext)
     useEffect(()=>{
         fetch('../../public/districts.json')
     .then(res=>res.json())
@@ -23,8 +31,50 @@ const RegisterPage = () => {
     // console.log(upazilas[0])
     const { register,handleSubmit, formState: { errors } } = useForm();
     
-    const onSubmit = data => {
+    const onSubmit = async(data) => {
         console.log(data);
+        const name= data.name;
+        const imageFile= {image:data.image[0]}
+        const result= await axiosPublic.post(imageHostingApi,imageFile,{
+            headers:{
+                "Content-Type": 'multipart/form-data'
+            }
+        })
+        console.log(result.data.data.display_url)
+        const image=result.data.data.display_url;
+        const email= data.email
+        const password=data.password
+        const newData= {name,image,email,password}
+        console.log(newData)
+        const userInfo={name,email}
+        signUp(email,password)
+            .then(result=>{
+                const user= result.user;
+                console.log(user)
+                updateUserInfo(name,image)
+                .then(()=>{
+                    axiosPublic.post('/adduser',userInfo)
+                    .then((result)=>{
+                         if(result.data.insertedId){
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Successfully Updated user Info",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/')
+                         }
+                    })
+                    
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
+            })
+            .catch(error=>{
+                console.log(error.message)
+            })
 
     }
     // console.log(errors);
@@ -42,6 +92,9 @@ const RegisterPage = () => {
                         {errors.name && <p className="text-red-500">Enter your email</p>}
                         <input type="date" className="border-2 rounded-sm p-2" placeholder="birthDate" {...register("birthDate", {required: true})} />
                         {errors.name && <p className="text-red-500">Enter Birth Date</p>}
+                        <p className="text-slate-400">upload Your image </p>
+                        <input type="file" className="border file-input w-full max-w-xs" placeholder="image" {...register("image", {required: true})} />
+                        {errors.image && <p className="text-red-500">Enter a image file</p>}
                         <p className="text-slate-400">Enter Gender: </p>
                         <select className="border-2 rounded-sm p-2" {...register("gender", { required: true })}>
                             <option value="">Select Gender</option>
