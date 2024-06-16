@@ -18,11 +18,11 @@ const Dashboard = () => {
                             <li><NavLink to='/dashboard/adminhome'><FaGlobe></FaGlobe> Admin Home</NavLink></li>
                             <li><NavLink to='/dashboard/donars'><BiDonateBlood /> All Doners</NavLink></li>
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
-                            <li><NavLink to='/dashboard/contentsManagement'><FaBlogger /> Contents Management</NavLink></li>
+                            <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
                         </>:isVolunteer?<>
                             <li><NavLink to='/dashboard/volunteerhome'><FaHandsHelping /> volunteer Home</NavLink></li>
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
-                            <li><NavLink to='/dashboard/contentsManagement'><FaBlogger /> Contents Management</NavLink></li>
+                            <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
                         </>:<>
                             <li><NavLink to='/dashboard/donarhome'>My Dashboard</NavLink></li>
                             <li><NavLink to='/dashboard/myrequests'>My Donation Requests</NavLink></li>
