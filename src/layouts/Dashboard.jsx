@@ -1,33 +1,38 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useVolunteer from "../hooks/useVolunteer";
+import { FaBlogger, FaGlobe, FaHandsHelping, FaHome } from "react-icons/fa";
+import { BiDonateBlood } from "react-icons/bi";
+import { MdAddBox } from "react-icons/md";
 
 
 const Dashboard = () => {
     const [isAdmin]= useAdmin()
+    const [isVolunteer]=useVolunteer()
     return (
         <div className="flex">
             <div className="w-60 min-h-screen bg-orange-400">
                 <ul className="menu gap-4">
                     {
                         isAdmin? <>
-                        <li><NavLink to='/dashboard/adminhome'><FaHouse></FaHouse> Admin Home</NavLink></li>
-                        <li><NavLink to='/dashboard/additem'><MdRestaurantMenu /> Add Item</NavLink></li>
-                        <li><NavLink to='/dashboard/payment'><HiMenu /> Manage Items</NavLink></li>
-                        <li><NavLink to='/dashboard/review'><FaBook></FaBook> Manage Bookings</NavLink></li>
-                        <li><NavLink to='/dashboard/booking'><FaUsers></FaUsers> All users</NavLink></li>
+                            <li><NavLink to='/dashboard/adminhome'><FaGlobe></FaGlobe> Admin Home</NavLink></li>
+                            <li><NavLink to='/dashboard/donars'><BiDonateBlood /> All Doners</NavLink></li>
+                            <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
+                            <li><NavLink to='/dashboard/contentsManagement'><FaBlogger /> Contents Management</NavLink></li>
+                        </>:isVolunteer?<>
+                            <li><NavLink to='/dashboard/volunteerhome'><FaHandsHelping /> volunteer Home</NavLink></li>
+                            <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
+                            <li><NavLink to='/dashboard/contentsManagement'><FaBlogger /> Contents Management</NavLink></li>
                         </>:<>
-                        <li><NavLink to='/dashboard/cart'><FaCartPlus></FaCartPlus> My Cart</NavLink></li>
-                        <li><NavLink to='/dashboard/reservation'><FaCalendar></FaCalendar> Reservation</NavLink></li>
-                        <li><NavLink to='/dashboard/payment'><FaWallet></FaWallet> My Payments</NavLink></li>
-                        <li><NavLink to='/dashboard/review'><FaComment></FaComment> My review</NavLink></li>
-                        <li><NavLink to='/dashboard/booking'><FaHouse></FaHouse> My Bookings</NavLink></li>
+                            <li><NavLink to='/dashboard/donarhome'>My Dashboard</NavLink></li>
+                            <li><NavLink to='/dashboard/myrequests'>My Donation Requests</NavLink></li>
+                            <li><NavLink to='/dashboard/createrequest'>Create Donation Request</NavLink></li>
                         </>
                     }
                     <div className="divider"></div>
                     <li><NavLink to='/'><FaHome></FaHome> Home</NavLink></li>
-                    <li><NavLink to='/menu'><MdRestaurantMenu /> Menu </NavLink></li>
-                    <li><NavLink to='/order/:category'><FaBasketShopping /> Order </NavLink></li>
-                    <li><NavLink to='/contact'><BiSupport /> Contact </NavLink></li>
+                    <li><NavLink to='/donationrequests'><MdAddBox /> All Donation Requests</NavLink></li>
+                    <li><NavLink to='/blogs'><FaBlogger /> Blogs</NavLink></li>
                 </ul>
 
             </div>

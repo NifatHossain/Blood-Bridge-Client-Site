@@ -40,17 +40,17 @@ const AuthProvider = ({children}) => {
                 setUser(currentUser)
                 // console.log(currentUser);
                 
-                // const userInfo={email: currentUser.email}
-                // axiosPublic.post('/jwt',userInfo)
-                // .then(result=>{
-                //     if(result.data.token){
-                //         localStorage.setItem('access-token',result.data.token)
-                //     }
-                // })
+                const userInfo={email: currentUser.email}
+                axiosPublic.post('/jwt',userInfo)
+                .then(result=>{
+                    if(result.data.token){
+                        localStorage.setItem('access-token',result.data.token)
+                    }
+                })
             }
             else{
                 setUser(null)
-                // localStorage.removeItem('access-token')
+                localStorage.removeItem('access-token')
             }
             setLoading(false)
 
