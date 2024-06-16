@@ -1,11 +1,13 @@
 import Lottie from "lottie-react";
 import registerAnimation2 from "../../public/registerLootie.json"
 import { useForm } from 'react-hook-form';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const RegisterPage = () => {
     const [districts, setDistricts]=useState([])
     const [upazilas, setUpazilas]=useState([])
+    const {signUp}=useContext(AuthContext)
     useEffect(()=>{
         fetch('../../public/districts.json')
     .then(res=>res.json())
@@ -23,6 +25,7 @@ const RegisterPage = () => {
     
     const onSubmit = data => {
         console.log(data);
+
     }
     // console.log(errors);
     return (
