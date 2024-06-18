@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
+import { Link } from "react-router-dom";
 
 
 const MyRequests = () => {
@@ -41,17 +42,18 @@ const MyRequests = () => {
             }
         });
     }
+    
     return (
         <div className="py-5 bg-rose-50 h-screen">
             <div className="flex justify-center">
-                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-rose-300 rounded-md mb-4">My Requests</h2>
+                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-rose-300 rounded-md mb-4 text-white">My Requests</h2>
             </div>
             {
                 (!(requests.length>0))?<>
                     <p>you dont have any request</p>
                 </>:<>
                 <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table">
                     {/* head */}
                     <thead>
                     <tr>
@@ -82,12 +84,13 @@ const MyRequests = () => {
                                 request.status==='inprogress'?<td><p>{request.donarName}</p><p>{request.donarEmail}</p></td>:<td>---</td>
                             }
                             {
-                                request.status==='inprogress'?<td><div className="flex flex-col"><button className="btn bg-green-400 text-white">Done</button><button className="btn bg-red-400 text-white">Cancel</button></div></td>:<td className="text-yellow-400">Processing</td>
+                                request.status==='inprogress'?<td><div className="flex flex-col"><button className="btn bg-green-400 text-white">Done</button><button className="btn bg-rose-300 text-white">Cancel</button></div></td>:<td className="text-green-400">Processing</td>
                             }
-                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-red-500 text-white">Delete</button></td>
-                            <td><button className="btn bg-teal-400 text-white">Details</button></td>
+                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-rose-300 text-white">Delete</button></td>
+                            <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details</button></Link></td>
                             
                         </tr>
+                        <div className="divider w-full"></div> 
                         </tbody>)
                     }
                 </table>

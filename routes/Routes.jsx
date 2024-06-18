@@ -13,6 +13,7 @@ import AllRequests from "../src/pages/adminPages/AllRequests";
 import ContentManage from "../src/pages/adminPages/ContentManage";
 import MyRequests from "../src/pages/donarPages/MyRequests";
 import CreateRequest from "../src/pages/donarPages/CreateRequest";
+import RequestDetails from "../src/pages/generalPages/RequestDetails";
 
 
 export const router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
         {
             path:'/login',
             element:<Login></Login>
+        },
+        {
+            path:'/requestdetails',
+            element:<RequestDetails></RequestDetails>
         }
     ]
   },
@@ -70,7 +75,7 @@ export const router = createBrowserRouter([
         {
             path:'createrequest',
             element:<CreateRequest></CreateRequest>
-        },
+        }
 
     ]
   }
