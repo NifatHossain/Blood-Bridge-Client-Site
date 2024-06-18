@@ -31,29 +31,24 @@ const CreateRequest = () => {
     const onSubmit = async(data) => {
         data.userName=user.displayName;
         data.userEmail=user.email;
+        data.status='pending'
         console.log(data);
-        //axiosPublic.post('/adduser',userInfo)
-        //         .then((result)=>{
-        //                 if(result.data.insertedId){
-        //                 Swal.fire({
-        //                     position: "top-end",
-        //                     icon: "success",
-        //                     title: "Successfully Updated user Info",
-        //                     showConfirmButton: false,
-        //                     timer: 1500
-        //                 });
-        //                 navigate('/')
-        //                 }
-        //         })
-                
-        //     })
-        //     .catch((error)=>{
-        //         console.log(error)
-        //     })
-        // })
-        // .catch(error=>{
-        //     console.log(error.message)
-        // })
+        axiosPublic.post('/donationrequest',data)
+        .then((result)=>{
+                if(result.data.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Requested for Donation",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/')
+                }
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
 
     }
     return (
