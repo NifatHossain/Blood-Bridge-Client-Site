@@ -1,18 +1,46 @@
 // import { useEffect, useState } from "react";
-// import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
 
 
 const MyRequests = () => {
     // const{user}=useAuth()
-    // const axiosSecure=useAxiosSecure()
-    const [requests,refetch]=useRequests()
+    const axiosSecure=useAxiosSecure()
     // useEffect(()=>{
     //     axiosSecure.get(`/getdonationrequests/${user.email}`)
     //     .then(result=>setRequests(result.data))
     //     .catch(error=>console.log(error))
     // },[axiosSecure,user.email])
+    const [requests,refetch]=useRequests()
+    const handleDelete=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+            
+                axiosSecure.delete(`/deleterequest/${id}`)
+                .then(res=>{
+                    if(res.data.deletedCount>0){
+                        refetch();
+                        Swal.fire({
+                        title: "Deleted!",
+                        text: "Your request has been deleted.",
+                        icon: "success"
+                        });
+                    }
+                })
+            }
+        });
+    }
     return (
         <div className="py-5 bg-rose-50 h-screen">
             <div className="flex justify-center">
@@ -43,7 +71,7 @@ const MyRequests = () => {
                     {
                         requests.map((request,idx)=><tbody key={idx}>
                         <tr>
-                            <th></th>
+                            <th>{idx+1}</th>
                             <td>{request.recipientName}</td>
                             <td>{request.blood_group}</td>
                             <td>{request.upzilla}, {request.district}</td>
@@ -56,7 +84,7 @@ const MyRequests = () => {
                             {
                                 request.status==='inprogress'?<td><div className="flex flex-col"><button className="btn bg-green-400 text-white">Done</button><button className="btn bg-red-400 text-white">Cancel</button></div></td>:<td className="text-yellow-400">Processing</td>
                             }
-                            <td><button className="btn bg-red-500 text-white">Delete</button></td>
+                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-red-500 text-white">Delete</button></td>
                             <td><button className="btn bg-teal-400 text-white">Details</button></td>
                             
                         </tr>

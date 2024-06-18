@@ -43,7 +43,7 @@ const CreateRequest = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/')
+                navigate('/dashboard/myrequests')
                 }
         })
         .catch((error)=>{
