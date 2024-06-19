@@ -4,6 +4,8 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
 import { Link, useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
+import noDataAnimation from "../../../public/noDataFound.json"
 
 
 const MyRequests = () => {
@@ -50,7 +52,7 @@ const MyRequests = () => {
                 refetch()
                 Swal.fire({
                 title: "Request Accepted",
-                text: "Thank you for helping someone to survive!!",
+                text: "Now you should contact Donar",
                 icon: "success"
                 });
                 navigate('/dashboard/myrequests')
@@ -66,7 +68,9 @@ const MyRequests = () => {
             </div>
             {
                 (!(requests.length>0))?<>
-                    <p>you dont have any request</p>
+                    <div className="flex justify-center items-center">
+                        <Lottie className=" w-1/2 " animationData={noDataAnimation} />
+                    </div>
                 </>:<>
                 <div className="overflow-x-auto">
                 <table className="table">

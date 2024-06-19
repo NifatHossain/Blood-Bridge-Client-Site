@@ -71,15 +71,20 @@ const RequestDetails = () => {
                         <p className="text-slate-400 text-lg">Donation Time: <span className="text-black">{details.donationTime}</span></p>
                        
                         <p className="text-slate-400 text-lg">Patient&apos;s Details: <span className="text-black">{details.patientDetails}</span></p>
-                        {
-                            details?.status==='pending' && (user.email!=details.userEmail || isAdmin) ? <>
-                                <div>
-                                    <button onClick={handleDonate} className="btn w-full bg-red-500 text-white">Donate</button>
-                                </div>
-                            </>:(details?.status==='pending' && (user.email===details.userEmail || isAdmin)) &&<>
-                                <Link to={`/dashboard/updaterequest?id=${details._id}`}><button className="btn w-full bg-red-500 text-white">Update</button></Link>
-                            </>
-                        }
+                        <div className="flex w-full gap-4">
+                            {
+                                details?.status==='pending' && (user.email!=details.userEmail || isAdmin) && <>
+                                    <div>
+                                        <button onClick={handleDonate} className="btn w-full bg-red-500 text-white">Donate</button>
+                                    </div>
+                                </>
+                            }
+                            {
+                                (details?.status==='pending' && (user.email===details.userEmail || isAdmin)) &&<>
+                                    <Link to={`/dashboard/updaterequest?id=${details._id}`}><button className="btn w-full bg-rose-400 text-white">Update</button></Link>
+                                </>
+                            }
+                        </div>
                         
                     </div>
                 </div>
