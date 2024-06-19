@@ -28,6 +28,11 @@ const Login = () => {
         })
         .catch(error=>{
             console.log(error.message)
+            Swal.fire({
+                title: "Error",
+                text: "Wrong Email or Password",
+                icon: "error"
+            });
         })
     }
     return (

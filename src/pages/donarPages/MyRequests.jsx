@@ -1,22 +1,27 @@
 // import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import noDataAnimation from "../../../public/noDataFound.json"
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 
 const MyRequests = () => {
-    // const{user}=useAuth()
+    const{user}=useAuth()
     const axiosSecure=useAxiosSecure()
+    const { register,handleSubmit, formState: { errors } } = useForm();
     // useEffect(()=>{
     //     axiosSecure.get(`/getdonationrequests/${user.email}`)
     //     .then(result=>setRequests(result.data))
     //     .catch(error=>console.log(error))
     // },[axiosSecure,user.email])
+    const[reqData,setReqData]=useState([])
     const [requests,refetch]=useRequests()
+    // setReqData(requests)
     const navigate= useNavigate()
     const handleDelete=(id)=>{
         Swal.fire({
@@ -60,11 +65,31 @@ const MyRequests = () => {
             }
         })
     }
-    
+    const onSubmit = (data) => {
+        console.log(data)
+        axiosSecure.get(`/getfilteredrequests?email=${user.email}&filter=${data.filterCondt}`)
+        .then(result=>setReqData(result.data))
+    }
+
     return (
         <div className="py-5 bg-teal-50 h-screen">
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">My Requests</h2>
+            </div>
+            <div>
+                <form className="flex gap-3 mt-7" onSubmit={handleSubmit(onSubmit)}>
+                    <select className="border-2 rounded-sm p-2" {...register("filterCondt", { required: true })}>
+                        <option value="">Filter</option>
+                        <option value="pending">pending</option>
+                        <option value="onprogress">inprogress</option>
+                        <option value="onprogress">done</option>
+                        <option value="onprogress">canceled</option>
+                    </select>
+                    {errors.filterCondt && <p className="text-red-500">Secect one to filter</p>}
+                    <input type="submit"className="btn btn-sm" />
+                </form>
+
+
             </div>
             {
                 (!(requests.length>0))?<>
