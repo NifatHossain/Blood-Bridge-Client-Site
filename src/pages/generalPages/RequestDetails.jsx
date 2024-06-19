@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 
 const RequestDetails = () => {
     const {user}=useAuth()
+    const [isAdmin]=useAdmin()
     const axiosSecure=useAxiosSecure()
     const navigate= useNavigate()
     const queryParameters = new URLSearchParams(window.location.search)
@@ -30,7 +32,7 @@ const RequestDetails = () => {
                 text: "Thank you for helping someone to survive!!",
                 icon: "success"
                 });
-                navigate('/dashboard/myrequests')
+                navigate('/')
                 
             }
         })
@@ -69,7 +71,16 @@ const RequestDetails = () => {
                         <p className="text-slate-400 text-lg">Donation Time: <span className="text-black">{details.donationTime}</span></p>
                        
                         <p className="text-slate-400 text-lg">Patient&apos;s Details: <span className="text-black">{details.patientDetails}</span></p>
-                        <button onClick={handleDonate} className="btn bg-red-500 text-white">Donate</button>
+                        {
+                            details?.status==='pending' && (user.email!=details.userEmail || isAdmin) ? <>
+                                <div>
+                                    <button onClick={handleDonate} className="btn w-full bg-red-500 text-white">Donate</button>
+                                </div>
+                            </>:(details?.status==='pending' && (user.email===details.userEmail || isAdmin)) &&<>
+                                <Link to={`/dashboard/updaterequest?id=${details._id}`}><button className="btn w-full bg-red-500 text-white">Update</button></Link>
+                            </>
+                        }
+                        
                     </div>
                 </div>
             </div>

@@ -14,6 +14,8 @@ import ContentManage from "../src/pages/adminPages/ContentManage";
 import MyRequests from "../src/pages/donarPages/MyRequests";
 import CreateRequest from "../src/pages/donarPages/CreateRequest";
 import RequestDetails from "../src/pages/generalPages/RequestDetails";
+import DonarHome from "../src/pages/donarPages/DonarHome";
+import UpdateRequest from "../src/pages/donarPages/UpdateRequest";
 
 
 export const router = createBrowserRouter([
@@ -44,7 +46,7 @@ export const router = createBrowserRouter([
         },
         {
             path:'/requestdetails',
-            element:<RequestDetails></RequestDetails>
+            element:<PrivateRoute><RequestDetails></RequestDetails></PrivateRoute>
         }
     ]
   },
@@ -75,6 +77,14 @@ export const router = createBrowserRouter([
         {
             path:'createrequest',
             element:<CreateRequest></CreateRequest>
+        },
+        {
+            path:'donarhome',
+            element:<DonarHome></DonarHome>
+        },
+        {
+            path:'updaterequest',
+            element:<UpdateRequest></UpdateRequest>
         }
 
     ]

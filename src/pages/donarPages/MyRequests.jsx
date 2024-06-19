@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const MyRequests = () => {
@@ -15,6 +15,7 @@ const MyRequests = () => {
     //     .catch(error=>console.log(error))
     // },[axiosSecure,user.email])
     const [requests,refetch]=useRequests()
+    const navigate= useNavigate()
     const handleDelete=(id)=>{
         Swal.fire({
             title: "Are you sure?",
@@ -41,6 +42,21 @@ const MyRequests = () => {
                 })
             }
         });
+    }
+    const handleSelectDonar=(id,status)=>{
+        axiosSecure.patch(`modifyrequeststatus?id=${id}&status=${status}`)
+        .then(Result=>{
+            if(Result.data.modifiedCount>0){
+                refetch()
+                Swal.fire({
+                title: "Request Accepted",
+                text: "Thank you for helping someone to survive!!",
+                icon: "success"
+                });
+                navigate('/dashboard/myrequests')
+                
+            }
+        })
     }
     
     return (
@@ -81,13 +97,13 @@ const MyRequests = () => {
                             <td>{request.donationTime}</td>
                             <td>{request.status}</td>
                             {
-                                request.status==='inprogress'?<td><p>{request.donarName}</p><p>{request.donarEmail}</p></td>:<td>---</td>
+                                request.status==='inprogress'||request.status==='done'?<td><p>{request.donarName}</p><p>{request.donarEmail}</p></td>:<td>---</td>
                             }
                             {
-                                request.status==='inprogress'?<td><div className="flex flex-col"><button className="btn bg-green-400 text-white">Done</button><button className="btn bg-rose-300 text-white">Cancel</button></div></td>:<td className="text-green-400">Processing</td>
+                                request.status==='inprogress'?<td><div className="flex flex-col"><button onClick={()=>handleSelectDonar(request._id,'done')}  className="btn bg-green-400 text-white">Done</button><button onClick={()=>handleSelectDonar(request._id,'cancel')} className="btn bg-rose-300 text-white">Cancel</button></div></td>:<td className="text-green-400">{request.status}</td>
                             }
                             <td><button onClick={()=>handleDelete(request._id)} className="btn bg-rose-300 text-white">Delete</button></td>
-                            <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details</button></Link></td>
+                            <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>
                             
                         </tr>
                         <div className="divider w-full"></div> 
