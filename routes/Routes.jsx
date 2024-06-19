@@ -16,12 +16,14 @@ import CreateRequest from "../src/pages/donarPages/CreateRequest";
 import RequestDetails from "../src/pages/generalPages/RequestDetails";
 import DonarHome from "../src/pages/donarPages/DonarHome";
 import UpdateRequest from "../src/pages/donarPages/UpdateRequest";
+import ErrorPage from "../src/pages/generalPages/ErrorPage";
 
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
         {
             path:'/',
