@@ -33,29 +33,32 @@ const RegisterPage = () => {
     const { register,handleSubmit, formState: { errors } } = useForm();
     
     const onSubmit = async(data) => {
-        console.log(data);
         const name= data.name;
+        const email= data.email
+        const password=data.password
         const imageFile= {image:data.image[0]}
         const result= await axiosPublic.post(imageHostingApi,imageFile,{
             headers:{
                 "Content-Type": 'multipart/form-data'
             }
         })
-        console.log(result.data.data.display_url)
+        // console.log(result.data.data.display_url)
         const image=result.data.data.display_url;
-        const email= data.email
-        const password=data.password
-        const role='donar'
+        data.image=image;
+        data.role='donar'
+        data.password='N/A'
+        console.log(data);
+        // const role='donar'
         const newData= {name,image,email,password}
         console.log(newData)
-        const userInfo={name,email,role}
+        // const userInfo={name,email,role}
         signUp(email,password)
             .then(result=>{
                 const user= result.user;
                 console.log(user)
                 updateUserInfo(name,image)
                 .then(()=>{
-                    axiosPublic.post('/adduser',userInfo)
+                    axiosPublic.post('/adduser',data)
                     .then((result)=>{
                          if(result.data.insertedId){
                             Swal.fire({
