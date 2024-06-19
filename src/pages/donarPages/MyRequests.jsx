@@ -62,9 +62,9 @@ const MyRequests = () => {
     }
     
     return (
-        <div className="py-5 bg-rose-50 h-screen">
+        <div className="py-5 bg-teal-50 h-screen">
             <div className="flex justify-center">
-                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-rose-300 rounded-md mb-4 text-white">My Requests</h2>
+                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">My Requests</h2>
             </div>
             {
                 (!(requests.length>0))?<>
@@ -104,9 +104,9 @@ const MyRequests = () => {
                                 request.status==='inprogress'||request.status==='done'?<td><p>{request.donarName}</p><p>{request.donarEmail}</p></td>:<td>---</td>
                             }
                             {
-                                request.status==='inprogress'?<td><div className="flex flex-col"><button onClick={()=>handleSelectDonar(request._id,'done')}  className="btn bg-green-400 text-white">Done</button><button onClick={()=>handleSelectDonar(request._id,'cancel')} className="btn bg-rose-300 text-white">Cancel</button></div></td>:<td className="text-green-400">{request.status}</td>
+                                request.status==='inprogress'?<td><div className="flex flex-col"><button onClick={()=>handleSelectDonar(request._id,'done')}  className="btn bg-green-400 text-white">Done</button><button onClick={()=>handleSelectDonar(request._id,'cancel')} className="btn bg-teal-300 text-white">Cancel</button></div></td>:<td className="text-green-400">{request.status}</td>
                             }
-                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-rose-300 text-white">Delete</button></td>
+                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-teal-300 text-white">Delete</button></td>
                             <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>
                             
                         </tr>

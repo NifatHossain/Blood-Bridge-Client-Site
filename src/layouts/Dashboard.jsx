@@ -10,7 +10,7 @@ const Dashboard = () => {
     const [isVolunteer]=useVolunteer()
     return (
         <div className="flex roboto">
-            <div className="w-60 min-h-screen bg-rose-400">
+            <div className="w-60 min-h-screen bg-teal-400">
                 <ul className="menu gap-4">
                     <li><div className=" text-2xl bg-white"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div></li>
                     {

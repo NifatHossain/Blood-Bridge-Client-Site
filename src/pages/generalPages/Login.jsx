@@ -1,14 +1,14 @@
 import Lottie from "lottie-react";
 import registerAnimation2 from "../../../public/Animation - 1718456224514.json"
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
 
 const Login = () => {
     const {signIn}=useAuth()
-    const location=useLocation()
+    // const location=useLocation()
     const navigate= useNavigate()
     const { register,handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async(data) => {

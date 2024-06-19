@@ -38,9 +38,9 @@ const RequestDetails = () => {
         })
     }
     return (
-        <div className="py-5 bg-rose-50">
+        <div className="py-5 bg-teal-50">
             <div className="flex justify-center">
-                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-rose-300 rounded-md mb-4 text-white">Request Details</h2>
+                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Request Details</h2>
             </div>
             <div className="flex gap-5">
                 <Lottie className=" w-1/2 flex-1" animationData={donationAnimation} />
@@ -81,7 +81,7 @@ const RequestDetails = () => {
                             }
                             {
                                 (details?.status==='pending' && (user.email===details.userEmail || isAdmin)) &&<>
-                                    <Link to={`/dashboard/updaterequest?id=${details._id}`}><button className="btn w-full bg-rose-400 text-white">Update</button></Link>
+                                    <Link to={`/dashboard/updaterequest?id=${details._id}`}><button className="btn w-full bg-teal-400 text-white">Update</button></Link>
                                 </>
                             }
                         </div>

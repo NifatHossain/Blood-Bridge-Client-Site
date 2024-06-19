@@ -69,9 +69,9 @@ const UpdateRequest = () => {
 
     }
     return (
-        <div className="py-5 bg-rose-50">
+        <div className="py-5 bg-teal-50">
             <div className="flex justify-center">
-                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-rose-300 rounded-md mb-4">Update Donation Request</h2>
+                <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4">Update Donation Request</h2>
             </div>
             <div className="flex gap-5">
                 <Lottie className=" w-1/2 flex-1 hidden" animationData={donationAnimation} />
