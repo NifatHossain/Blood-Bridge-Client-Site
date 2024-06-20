@@ -18,6 +18,7 @@ import DonarHome from "../src/pages/donarPages/DonarHome";
 import UpdateRequest from "../src/pages/donarPages/UpdateRequest";
 import ErrorPage from "../src/pages/generalPages/ErrorPage";
 import AddContent from "../src/pages/adminPages/AddContent";
+import BlogsDetails from "../src/pages/generalPages/BlogsDetails";
 
 
 export const router = createBrowserRouter([
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
         {
             path:'/requestdetails',
             element:<PrivateRoute><RequestDetails></RequestDetails></PrivateRoute>
+        },
+        {
+            path:'/blogdetails/:id',
+            element:<BlogsDetails></BlogsDetails>
         }
     ]
   },

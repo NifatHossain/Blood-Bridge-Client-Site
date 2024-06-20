@@ -74,7 +74,7 @@ const ContentManage = () => {
                             <div className="flex justify-center items-center">
                                 <Lottie className=" w-1/2 " animationData={noDataAnimation} />
                             </div>
-                        </>:<div  className="ml-4 grid grid-cols-3 gap-7">
+                        </>:<div  className="mx-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-7">
                             {
                                 articles.map((article)=><div key={article._id}>
                                     <div className="border-2 rounded-lg">
