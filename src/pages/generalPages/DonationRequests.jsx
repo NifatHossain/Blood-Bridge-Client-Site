@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import useAxiosSecure from "../../hooks/useAxiosSecure";
 // import useRequests from "../../hooks/useRequests";
 // import Swal from "sweetalert2";
-import useAllRequests from "../../hooks/useAllRequests";
+import usePendingRequests from "../../hooks/usePendingRequests";
 import noDataAnimation from "../../../public/noDataFound.json"
 import Lottie from "lottie-react";
 
@@ -13,7 +13,7 @@ const DonationRequests = () => {
     //     .then(result=>setRequests(result.data))
     //     .catch(error=>console.log(error))
     // },[axiosSecure,user.email])
-    const [requests]=useAllRequests()
+    const [requests]=usePendingRequests()
     // const navigate= useNavigate()
     // const handleDelete=(id)=>{
     //     Swal.fire({
