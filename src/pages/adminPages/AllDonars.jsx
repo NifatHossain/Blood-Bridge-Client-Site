@@ -116,9 +116,9 @@ const AllDonars = () => {
                             
                         </tr>
                         </tbody>)
-                    }
+                        }
                 </table>
-            </div>
+                </div>
                 </>
 
             }

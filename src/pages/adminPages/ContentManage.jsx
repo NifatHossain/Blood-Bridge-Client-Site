@@ -24,7 +24,9 @@ const ContentManage = () => {
                 Swal.fire({
                 title: "Success",
                 text: "Article status changed",
-                icon: "success"
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
                 });
                 // navigate('/dashboard/myrequests')
                 
@@ -51,7 +53,9 @@ const ContentManage = () => {
                         Swal.fire({
                         title: "Deleted!",
                         text: "Article has been deleted.",
-                        icon: "success"
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
                         });
                     }
                 })
@@ -90,7 +94,7 @@ const ContentManage = () => {
                                             <span>{(article.article).slice(0,100)}</span>
                                             <Link state={location.pathname} to={`/articleDetails?id=${article._id}`}><span className="btn btn-xs">Read More</span></Link>
                                             
-                                            <div className="flex gap-4">
+                                            <div className="flex gap-4 mt-3">
                                                 {
                                                     ((article.status==='draft') && isAdmin)?<button onClick={()=>handlePublish(article._id,'published')} className="btn bg-teal-400 text-white">Publish</button>:((article.status==='published') && isAdmin) &&<button onClick={()=>handlePublish(article._id,'draft')} className="btn bg-teal-400 text-white">Unpublish</button>
                                                 }

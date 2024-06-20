@@ -19,6 +19,7 @@ import UpdateRequest from "../src/pages/donarPages/UpdateRequest";
 import ErrorPage from "../src/pages/generalPages/ErrorPage";
 import AddContent from "../src/pages/adminPages/AddContent";
 import BlogsDetails from "../src/pages/generalPages/BlogsDetails";
+import SearchDonar from "../src/pages/generalPages/SearchDonar";
 
 
 export const router = createBrowserRouter([
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         {
             path:'/articledetails',
             element:<BlogsDetails></BlogsDetails>
+        },
+        {
+            path: 'searchdonar',
+            element:<SearchDonar></SearchDonar>
         }
     ]
   },
