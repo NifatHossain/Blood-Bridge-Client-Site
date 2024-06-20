@@ -1,17 +1,15 @@
 // import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import useAuth from "../../hooks/useAuth";
 import useRequests from "../../hooks/useRequests";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import noDataAnimation from "../../../public/noDataFound.json"
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+// import { useState } from "react";
 
 
 const MyRequests = () => {
-    const{user}=useAuth()
     const axiosSecure=useAxiosSecure()
     const { register,handleSubmit, formState: { errors } } = useForm();
     // useEffect(()=>{
@@ -19,7 +17,12 @@ const MyRequests = () => {
     //     .then(result=>setRequests(result.data))
     //     .catch(error=>console.log(error))
     // },[axiosSecure,user.email])
-    const[reqData,setReqData]=useState([])
+
+
+    // const[reqData,setReqData]=useState([])
+
+
+
     const [requests,refetch]=useRequests()
     // setReqData(requests)
     const navigate= useNavigate()
@@ -67,8 +70,8 @@ const MyRequests = () => {
     }
     const onSubmit = (data) => {
         console.log(data)
-        axiosSecure.get(`/getfilteredrequests?email=${user.email}&filter=${data.filterCondt}`)
-        .then(result=>setReqData(result.data))
+        // axiosSecure.get(`/getfilteredrequests?email=${user.email}&filter=${data.filterCondt}`)
+        // .then(result=>setReqData(result.data))
     }
 
     return (
