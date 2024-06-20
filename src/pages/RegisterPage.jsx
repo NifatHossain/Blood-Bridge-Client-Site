@@ -47,6 +47,7 @@ const RegisterPage = () => {
         data.image=image;
         data.role='donar'
         data.password='N/A'
+        data.status='active'
         console.log(data);
         // const role='donar'
         const newData= {name,image,email,password}
