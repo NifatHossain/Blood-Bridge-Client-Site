@@ -29,7 +29,7 @@ const Blogs = () => {
                                     </div>
                                     <h2 className="text-lg font-semibold">{article.title}</h2>
                                     <span>{(article.article).slice(0,100)}</span>
-                                    <Link to={`/articleDetails/${article._id}`}><span className="btn btn-xs">Read More</span></Link>
+                                    <Link state={location.pathname} to={`/articleDetails?id=${article._id}`}><span className="btn btn-xs">Read More</span></Link>
                                     {/* <hr className="my-3" />
                                     <div className="flex gap-4">
                                         {

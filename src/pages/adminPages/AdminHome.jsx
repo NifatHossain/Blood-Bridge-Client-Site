@@ -3,11 +3,13 @@ import useAuth from "../../hooks/useAuth";
 import { FaSackDollar } from "react-icons/fa6";
 import { MdBloodtype } from "react-icons/md";
 import useAllRequests from "../../hooks/useAllRequests";
+import useAllDonars from "../../hooks/useAllDonars";
 
 
 const AdminHome = () => {
     const {user}=useAuth();
     const [requests]=useAllRequests()
+    const [users]=useAllDonars()
     return (
         <div className="py-5 bg-teal-50 h-screen">
             <div className="flex">
@@ -31,7 +33,7 @@ const AdminHome = () => {
                             </div>
                             <div>
                                 <p className="text-3xl text-white font-semibold ">Total Doners</p>
-                                <p className="text-3xl text-white font-semibold ">200</p>
+                                <p className="text-3xl text-white font-semibold ">{users.length}</p>
                             </div>
                         </div>
                     </div>

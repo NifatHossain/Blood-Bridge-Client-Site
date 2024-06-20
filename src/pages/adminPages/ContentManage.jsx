@@ -88,8 +88,8 @@ const ContentManage = () => {
                                             </div>
                                             <h2 className="text-lg font-semibold">{article.title}</h2>
                                             <span>{(article.article).slice(0,100)}</span>
-                                            <Link to={`/articleDetails/${article._id}`}><span className="btn btn-xs">Read More</span></Link>
-                                            <hr className="my-3" />
+                                            <Link state={location.pathname} to={`/articleDetails?id=${article._id}`}><span className="btn btn-xs">Read More</span></Link>
+                                            
                                             <div className="flex gap-4">
                                                 {
                                                     ((article.status==='draft') && isAdmin)?<button onClick={()=>handlePublish(article._id,'published')} className="btn bg-teal-400 text-white">Publish</button>:((article.status==='published') && isAdmin) &&<button onClick={()=>handlePublish(article._id,'draft')} className="btn bg-teal-400 text-white">Unpublish</button>

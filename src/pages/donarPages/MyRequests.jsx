@@ -138,7 +138,6 @@ const MyRequests = () => {
                             <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>
                             
                         </tr>
-                        <div className="divider w-full"></div> 
                         </tbody>)
                     }
                 </table>

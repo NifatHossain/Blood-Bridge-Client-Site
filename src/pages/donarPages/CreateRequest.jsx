@@ -4,14 +4,14 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CreateRequest = () => {
     const [districts, setDistricts]=useState([])
     const [upazilas, setUpazilas]=useState([])
     const {user}=useAuth()
-    const axiosPublic=useAxiosPublic()
+    const axiosSecure=useAxiosSecure()
     const navigate= useNavigate()
     useEffect(()=>{
         fetch('../../public/districts.json')
@@ -33,7 +33,7 @@ const CreateRequest = () => {
         data.userEmail=user.email;
         data.status='pending'
         console.log(data);
-        axiosPublic.post('/donationrequest',data)
+        axiosSecure.post('/donationrequest',data)
         .then((result)=>{
                 if(result.data.insertedId){
                 Swal.fire({

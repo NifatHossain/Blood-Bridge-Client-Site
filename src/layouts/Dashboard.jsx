@@ -20,7 +20,7 @@ const Dashboard = () => {
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox/> All Donation Requests</NavLink></li>
                             <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
                         </>:isVolunteer?<>
-                            <li><NavLink to='/dashboard/volunteerhome'><FaHandsHelping /> volunteer Home</NavLink></li>
+                            <li><NavLink to='/dashboard/adminhome'><FaHandsHelping /> volunteer Home</NavLink></li>
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
                             <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
                         </>:<>

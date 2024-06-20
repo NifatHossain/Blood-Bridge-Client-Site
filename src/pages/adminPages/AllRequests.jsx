@@ -5,9 +5,13 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import noDataAnimation from "../../../public/noDataFound.json"
 import useAllRequests from "../../hooks/useAllRequests";
+import useAdmin from "../../hooks/useAdmin";
+import useVolunteer from "../../hooks/useVolunteer";
 
 const AllRequests = () => {
     const axiosSecure=useAxiosSecure()
+    const[isAdmin]=useAdmin()
+    const[isVolunteer]=useVolunteer()
     const { register,handleSubmit, formState: { errors } } = useForm();
     
     const [requests,refetch]=useAllRequests()
@@ -119,13 +123,16 @@ const AllRequests = () => {
                                 request.status==='inprogress'||request.status==='done'?<td><p>{request.donarName}</p><p>{request.donarEmail}</p></td>:<td>---</td>
                             }
                             {
-                                request.status==='inprogress'?<td><div className="flex flex-col"><button onClick={()=>handleSelectDonar(request._id,'done')}  className="btn bg-green-400 text-white">Done</button><button onClick={()=>handleSelectDonar(request._id,'cancel')} className="btn bg-teal-300 text-white">Cancel</button></div></td>:<td className="text-green-400">{request.status}</td>
+                                (request.status==='inprogress')?<td><div className="flex flex-col"><button onClick={()=>handleSelectDonar(request._id,'done')}  className="btn bg-green-400 text-white">Done</button><button onClick={()=>handleSelectDonar(request._id,'cancel')} className="btn bg-teal-300 text-white">Cancel</button></div></td>:<td className="text-green-400">{request.status}</td>
                             }
-                            <td><button onClick={()=>handleDelete(request._id)} className="btn bg-teal-300 text-white">Delete</button></td>
-                            <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>
+                            {
+                                isAdmin? <td><button onClick={()=>handleDelete(request._id)} className="btn bg-teal-300 text-white">Delete</button></td>: <td><p>---</p></td>
+                            }
+                            {
+                                isAdmin? <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>: isVolunteer? <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details</button></Link></td>:<td><p>---</p></td> 
+                            }
                             
                         </tr>
-                        <div className="divider w-full"></div> 
                         </tbody>)
                     }
                 </table>
