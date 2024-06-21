@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import noDataAnimation from "../../../public/noDataFound.json"
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 // import { useState } from "react";
 
 
@@ -24,6 +25,7 @@ const MyRequests = () => {
 
 
     const [requests,refetch]=useRequests()
+    const[filteredRequests, setFilteredRequests]=useState()
     // setReqData(requests)
     const navigate= useNavigate()
     const handleDelete=(id)=>{
@@ -70,6 +72,7 @@ const MyRequests = () => {
     }
     const onSubmit = (data) => {
         console.log(data)
+        setFilteredRequests
         // axiosSecure.get(`/getfilteredrequests?email=${user.email}&filter=${data.filterCondt}`)
         // .then(result=>setReqData(result.data))
     }
@@ -85,8 +88,8 @@ const MyRequests = () => {
                         <option value="">Filter</option>
                         <option value="pending">pending</option>
                         <option value="onprogress">inprogress</option>
-                        <option value="onprogress">done</option>
-                        <option value="onprogress">canceled</option>
+                        <option value="done">done</option>
+                        <option value="canceled">canceled</option>
                     </select>
                     {errors.filterCondt && <p className="text-red-500">Secect one to filter</p>}
                     <input type="submit"className="btn btn-sm" />

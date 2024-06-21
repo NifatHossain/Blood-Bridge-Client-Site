@@ -12,12 +12,12 @@ const SearchDonar = () => {
     const [donars,setDonars]=useState([])
     const axiosPublic=useAxiosPublic()
     useEffect(()=>{
-        fetch('../../public/districts.json')
+        fetch('/districts.json')
     .then(res=>res.json())
     .then(data=>setDistricts(data[2].data))
     },[])
     useEffect(()=>{
-        fetch('../../public/upazilas.json')
+        fetch('/upazilas.json')
     .then(res=>res.json())
     .then(data=>setUpazilas(data[2].data))
     },[])

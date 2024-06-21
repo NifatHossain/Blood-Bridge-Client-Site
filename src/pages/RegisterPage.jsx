@@ -18,12 +18,12 @@ const RegisterPage = () => {
     const navigate= useNavigate()
     const {signUp,updateUserInfo}=useContext(AuthContext)
     useEffect(()=>{
-        fetch('../../public/districts.json')
+        fetch('/districts.json')
     .then(res=>res.json())
     .then(data=>setDistricts(data[2].data))
     },[])
     useEffect(()=>{
-        fetch('../../public/upazilas.json')
+        fetch('/upazilas.json')
     .then(res=>res.json())
     .then(data=>setUpazilas(data[2].data))
     },[])

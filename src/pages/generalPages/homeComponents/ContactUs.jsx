@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 
 const ContactUs = () => {
-    const { register,handleSubmit, formState: { errors } } = useForm();
+    const { register,handleSubmit,reset, formState: { errors } } = useForm();
     const onSubmit = async(data) => {
         console.log(data)
         Swal.fire({
@@ -12,6 +12,7 @@ const ContactUs = () => {
             showConfirmButton: false,
             timer: 1500
         });
+        reset()
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 items-center bg-teal-50 px-4 py-8 my-3 md:my-10 ">
