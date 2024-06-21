@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure= axios.create({
-    baseURL: 'https://blood-bridge-server-two.vercel.app/'
+    baseURL: 'https://blood-bridge-server-two.vercel.app'
 })
 const useAxiosSecure = () => {
     const location=useLocation();

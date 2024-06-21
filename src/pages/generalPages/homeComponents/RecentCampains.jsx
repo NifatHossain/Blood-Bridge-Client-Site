@@ -12,7 +12,7 @@ const RecentCampains = () => {
                 <button className="cursor-pointer font-medium bg-red-500 text-white p-5">LOAD ALL CAMPAINS</button>
             </div>
             <div className="card max-w-2xl  rounded-none card-side bg-base-100 shadow-xl">
-                <figure className="h-full"><img src="https://templates.bwlthemes.com/blood_donation/v_2/images/event_1.jpg" alt="Movie"/></figure>
+                <figure className="h-full"><img src="https://i.ibb.co/QKPWhb2/event-1.webp" alt="donation image"/></figure>
                 <div className="card-body">
                     <div className="flex items-center gap-4">
                         <BsCalendarDate className="text-red-500" />
