@@ -19,7 +19,7 @@ const RecentCampains = () => {
                         <p>24 February, 2024</p>
                     </div>
                     <h2 className="card-title">Open Blood Donation</h2>
-                    <p>Join our Open Blood Donation Campaign! Your donation can save lives. Come, donate blood, and be a hero. Every drop counts. Let's make a difference together!</p>
+                    <p>Join our Open Blood Donation Campaign! Your donation can save lives. Come, donate blood, and be a hero. Every drop counts. Let&apos;s make a difference together!</p>
                     <div className="card-actions">
                         <div className="flex gap-7">
                             <div className="flex gap-1 items-center">
