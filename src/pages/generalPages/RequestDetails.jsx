@@ -43,9 +43,9 @@ const RequestDetails = () => {
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Request Details</h2>
             </div>
             <div className="flex gap-5">
-                <Lottie className=" w-1/2 flex-1" animationData={donationAnimation} />
+                <Lottie className=" w-1/2 flex-1 hidden lg:block" animationData={donationAnimation} />
                 <div className="flex flex-col items-center flex-1  w-full">
-                    <div className=" text-2xl"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div>
+                    <div className=" text-2xl hidden lg:block"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div>
                     <div className="flex flex-col gap-3 w-[60%] mt-7">
                         <p className="text-slate-400 text-lg">Posted by(Name): <span className="text-black"> {details.userName}</span></p>
                         <p className="text-slate-400 text-lg">Posted by(email):<span className="text-black"> {details.userEmail}</span></p>

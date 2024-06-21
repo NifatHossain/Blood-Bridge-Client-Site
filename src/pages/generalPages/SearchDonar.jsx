@@ -45,7 +45,7 @@ const SearchDonar = () => {
                     <Lottie  animationData={registerAnimation2} />
                 </div>
                 <div className="flex flex-col items-center flex-1  w-full mb-6">
-                    <div className=" text-2xl"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div>
+                    <div className=" text-2xl hidden md:block"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div>
                     <div className="w-[60%]">
                         <form className="flex flex-col gap-3 w-full mt-7" onSubmit={handleSubmit(onSubmit)}>
                             

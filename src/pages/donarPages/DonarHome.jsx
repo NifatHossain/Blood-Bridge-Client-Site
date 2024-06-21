@@ -72,11 +72,11 @@ const DonarHome = () => {
     
     return (
         <div className="py-5 bg-teal-50 h-screen">
-            <div className="flex">
+            <div className="flex  mt-10 md:mt-4">
                 <div className="flex flex-1 justify-center items-center">
                     <h2 className="text-center text-2xl w-[60%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Welcome {user.displayName}</h2>
                 </div>
-                <div className="avatar mr-5 hidden md:block">
+                <div className="avatar mr-5 ">
                     <div className="w-24 rounded-full">
                         <img src={user.photoURL} />
                     </div>
@@ -125,8 +125,7 @@ const DonarHome = () => {
                             <td><button onClick={()=>handleDelete(request._id)} className="btn bg-teal-300 text-white">Delete</button></td>
                             <td><Link to={`/requestdetails?id=${request._id}`}><button className="btn bg-green-400 text-white">Details/Edit</button></Link></td>
                             
-                        </tr>
-                        <div className="divider w-full"></div> 
+                        </tr> 
                         </tbody>)
                     }
                 </table>
