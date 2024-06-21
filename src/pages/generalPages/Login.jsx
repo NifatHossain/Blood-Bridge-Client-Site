@@ -41,7 +41,9 @@ const Login = () => {
         <div>
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md ">Login Page</h2>
             <div className="flex items-center gap-5">
-                <Lottie className=" w-1/2 flex-1" animationData={registerAnimation2} />
+                <div className="hidden md:block w-1/2 flex-1">
+                    <Lottie  animationData={registerAnimation2} />
+                </div>
                 <div className="flex flex-col items-center flex-1  w-full">
                     <div className=" text-2xl"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div>
                     <div className="w-[60%] ">

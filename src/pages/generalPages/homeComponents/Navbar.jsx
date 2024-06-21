@@ -2,14 +2,10 @@ import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import useAdmin from "../../../hooks/useAdmin";
-import useVolunteer from "../../../hooks/useVolunteer";
 
 
 const Navbar = () => {
     const {user,logOut}=useAuth()
-    const [isAdmin]=useAdmin()
-    const [isVolunteer]=useVolunteer()
     const options= <>
         <li><Link to={'/donationrequests'} className="font-semibold">Donation Requests</Link></li>
         <li><Link to={'/blogs'} className="font-semibold">Blogs</Link></li>
@@ -67,9 +63,10 @@ const Navbar = () => {
                         </div>
                         <Tooltip className="flex flex-col space-y-1" anchorSelect="#avater" style={{ backgroundColor: "rgb(241 245 249)", color: "#222" }} clickable>
                             <p className="text-center">{user.displayName}</p>
-                             {
+                             {/* {
                                 (isAdmin || isVolunteer) ?<Link to={'/dashboard/adminhome'}><button className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Dashboard</button></Link>:<Link to={'/dashboard/donarhome'}><button className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Dashboard</button></Link>
-                             }
+                             } */}
+                             <Link to={'/dashboard'}><button className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Dashboard</button></Link>
                              <button onClick={handleLogOut} className="border-2 bg-slate-100 px-2 py-1 rounded-md font-semibold">Log Out</button>
                         </Tooltip>
                     </div>

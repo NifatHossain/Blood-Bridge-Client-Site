@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
             element:<BlogsDetails></BlogsDetails>
         },
         {
-            path: 'searchdonar',
+            path: '/searchdonar',
             element:<SearchDonar></SearchDonar>
         }
     ]
