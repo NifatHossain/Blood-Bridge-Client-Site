@@ -17,7 +17,7 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-teal-50 px-4 py-8 my-10 ">
             
             {/* <div className="card max-w-2xl  rounded-none card-side bg-base-100 shadow-xl"> */}
-            <form className="flex flex-col gap-3 w-[80%] mt-7 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col gap-3 w-[80%] mt-7 p-5 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" className="border-2 rounded-sm p-2" placeholder="name" {...register("name", {required: true})} />
                     {errors.name && <p className="text-red-500">Enter your name</p>}
                     <input type="email" className="border-2 rounded-sm p-2" placeholder="email" {...register("email", {required: true})} />

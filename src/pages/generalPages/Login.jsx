@@ -40,7 +40,7 @@ const Login = () => {
     return (
         <div>
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md ">Login Page</h2>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 bg-teal-50">
                 <div className="hidden md:block w-1/2 flex-1">
                     <Lottie  animationData={registerAnimation2} />
                 </div>
