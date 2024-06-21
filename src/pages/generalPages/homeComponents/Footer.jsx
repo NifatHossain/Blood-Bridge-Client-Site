@@ -88,13 +88,13 @@ const Footer = () => {
                 </nav>  */}
                 <form>
                     <h6 className="footer-title text-2xl">Newsletter</h6> 
-                    <fieldset className="form-control w-80">
+                    <fieldset className="form-control">
                     <label className="label">
                         <span className="label-text text-white">Enter your email address</span>
                     </label> 
                     <div className="join">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered join-item" /> 
-                        <button className="btn bg-red-500 text-white join-item">Subscribe</button>
+                        <input type="text" placeholder="email" className="input input-bordered join-item" /> 
+                        <button className="btn -ml-10 md:-ml-20 lg:-ml-0 bg-red-500 text-white join-item">Subscribe</button>
                     </div>
                     </fieldset>
                 </form>

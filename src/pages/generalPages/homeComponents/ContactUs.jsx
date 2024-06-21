@@ -14,10 +14,14 @@ const ContactUs = () => {
         });
     }
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center bg-teal-50 px-4 py-8 my-10 ">
-            
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 items-center bg-teal-50 px-4 py-8 my-3 md:my-10 ">
+            <div className="space-y-3 ">
+                <h1 className="text-5xl font-semibold"><span className="md:border-b-2 border-red-500">GET</span> IN TOUCH</h1>
+                <p className="font-medium text-lg">Our dedicate support team is always ready to help you out. Submit Your details and our team will contact you as soon as possible</p>
+                <button className="cursor-pointer font-medium bg-red-500 text-white p-5">DETAILS</button>
+            </div>
             {/* <div className="card max-w-2xl  rounded-none card-side bg-base-100 shadow-xl"> */}
-            <form className="flex flex-col gap-3 w-[80%] mt-7 p-5 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col gap-3 w-[100%] md:w-[100%] md:mt-7 p-5 border md:border-0 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" className="border-2 rounded-sm p-2" placeholder="name" {...register("name", {required: true})} />
                     {errors.name && <p className="text-red-500">Enter your name</p>}
                     <input type="email" className="border-2 rounded-sm p-2" placeholder="email" {...register("email", {required: true})} />
@@ -37,11 +41,7 @@ const ContactUs = () => {
                     {errors.blood_group && <p className="text-red-500">blood group required</p>}
                     <input type="submit"className="btn" />
             </form>
-            <div className="space-y-3 ">
-                <h1 className="text-5xl font-semibold"><span className="border-b-2 border-red-500">GET</span> IN TOUCH</h1>
-                <p className="font-medium text-lg">Our dedicate support team is always ready to help you out. Submit Your details and our team will contact you as soon as possible</p>
-                <button className="cursor-pointer font-medium bg-red-500 text-white p-5">DETAILS</button>
-            </div>
+            
         </div>
     );
 };

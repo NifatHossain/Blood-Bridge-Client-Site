@@ -5,13 +5,13 @@ import { SiGooglemaps } from "react-icons/si";
 
 const RecentCampains = () => {
     return (
-        <div className="flex items-center bg-teal-50 px-4 py-4">
+        <div className="flex flex-col gap-6 md:gap-0 md:flex-row items-center bg-teal-50 px-4 py-4">
             <div className="space-y-3 max-w-2xl">
-                <h1 className="text-5xl font-semibold"><span className="border-b-2 border-red-500">OUR</span> CAMPAINS</h1>
+                <h1 className="text-5xl font-semibold"><span className="md:border-b-2 border-red-500">OUR</span> CAMPAINS</h1>
                 <p className="font-medium text-lg">All over the country we have arranged around hundred donation campaigns and visit other venues on various occasions.</p>
                 <button className="cursor-pointer font-medium bg-red-500 text-white p-5">LOAD ALL CAMPAINS</button>
             </div>
-            <div className="card max-w-2xl  rounded-none card-side bg-base-100 shadow-xl">
+            <div className="card max-w-2xl flex flex-col md:flex-row  rounded-none card-side bg-base-100 shadow-xl">
                 <figure className="h-full"><img src="https://i.ibb.co/QKPWhb2/event-1.webp" alt="donation image"/></figure>
                 <div className="card-body">
                     <div className="flex items-center gap-4">

@@ -11,19 +11,19 @@ const AdminHome = () => {
     const [requests]=useAllRequests()
     const [users]=useAllDonars()
     return (
-        <div className="py-5 bg-teal-50 h-screen">
-            <div className="flex">
-                <div className="flex flex-1 justify-center items-center">
+        <div className="py-5 bg-teal-50 mt-10 h-screen">
+            <div className="flex flex-col md:flex-row">
+                <div className="flex flex-1 mt-20 md:mt-0 justify-center items-center">
                     <h2 className="text-center text-2xl w-[60%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Welcome {user.displayName}</h2>
                 </div>
-                <div className="avatar mr-5 hidden md:block">
+                <div className="avatar flex justify-center mr-5">
                     <div className="w-24 rounded-full">
                         <img src={user.photoURL} />
                     </div>
                 </div>
             </div>
-            <div className="h-[70%] flex justify-center items-center">
-            <div >
+            <div className="md:h-[70%] flex justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-col md:flex-row justify-center mt-7 gap-9">
                     {/* totaluser */}
                     <div className="flex justify-center">
@@ -48,7 +48,7 @@ const AdminHome = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex justify-center mt-9">
+                    <div className="flex justify-center mt-9 mx-5 md:mx-0">
                         <div className="flex gap-4 items-center p-5 bg-green-300 border-2 w-fit rounded-lg">
                             <div>
                                 <MdBloodtype className="text-5xl text-green-600 " />

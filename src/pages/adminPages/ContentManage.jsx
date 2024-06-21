@@ -64,13 +64,17 @@ const ContentManage = () => {
     }
     return (
         
-        <div>
-            <div className="py-5 bg-teal-50">
-                <div className="flex justify-center gap-5">
-                    <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Content Management</h2>
-                    {
-                        (hide===false)?<NavLink to={'/dashboard/contentsmanagement/addcontent'}><button onClick={handleHide} className="btn bg-teal-500 text-white"> <MdCreateNewFolder className="text-2xl" /> add content</button></NavLink>:<NavLink to={'/dashboard/contentsmanagement'}><button onClick={handleHide} className="btn bg-teal-500 text-white"> <MdCreateNewFolder className="text-2xl" /> Return</button></NavLink>
-                    }
+        <div className="bg-teal-50">
+            <div className="py-5 mt-10 ">
+                <div className="flex flex-col md:flex-row justify-center gap-5">
+                    <div className="flex justify-center w-[70%] mx-auto">
+                        <h2 className="text-center text-2xl  px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Content Management</h2>
+                    </div>
+                    <div className="flex justify-center mb-5">
+                        {
+                            (hide===false)?<NavLink to={'/dashboard/contentsmanagement/addcontent'}><button onClick={handleHide} className="btn bg-teal-500 text-white"> <MdCreateNewFolder className="text-2xl" /> add content</button></NavLink>:<NavLink to={'/dashboard/contentsmanagement'}><button onClick={handleHide} className="btn bg-teal-500 text-white"> <MdCreateNewFolder className="text-2xl" /> Return</button></NavLink>
+                        }
+                    </div>
                 </div>
                 <div className={hide&&"hidden bg-teal-50" }>
                     {
