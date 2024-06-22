@@ -20,6 +20,7 @@ import ErrorPage from "../src/pages/generalPages/ErrorPage";
 import AddContent from "../src/pages/adminPages/AddContent";
 import BlogsDetails from "../src/pages/generalPages/BlogsDetails";
 import SearchDonar from "../src/pages/generalPages/SearchDonar";
+import ProfilePage from "../src/pages/generalPages/ProfilePage";
 
 
 export const router = createBrowserRouter([
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
     path:"/dashboard",
     element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
+        {
+            path:'profile',
+            element:<ProfilePage></ProfilePage>
+        },
         {
             path:'adminhome',
             element:<AdminHome></AdminHome>

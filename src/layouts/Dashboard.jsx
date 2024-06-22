@@ -23,15 +23,22 @@ const Dashboard = () => {
                     <li><div className=" text-2xl bg-white"><div className="flex flex-col items-center"><div><span className="text-red-500">Blood</span> Bridge</div><p className="text-xs font-light text-red-500">Connecting Doners, Saving Lives</p></div></div></li>
                     {
                         isAdmin? <>
+                            <li><NavLink to='/dashboard/profile'><FaUser></FaUser> My Profile</NavLink></li>
                             <li><NavLink to='/dashboard/adminhome'><FaGlobe></FaGlobe> Admin Home</NavLink></li>
                             <li><NavLink to='/dashboard/alldonars'><FaUsers /> All Doners</NavLink></li>
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox/> All Donation Requests</NavLink></li>
                             <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
+                            <li><NavLink to='/dashboard/myrequests'><MdAddBox /> My Donation Requests</NavLink></li>
+                            <li><NavLink to='/dashboard/createrequest'><FaNotesMedical /> Create Donation Request</NavLink></li>
                         </>:isVolunteer?<>
+                            <li><NavLink to='/dashboard/profile'><FaUser></FaUser> My Profile</NavLink></li>
                             <li><NavLink to='/dashboard/adminhome'><FaHandsHelping /> volunteer Home</NavLink></li>
                             <li><NavLink to='/dashboard/allrequests'><MdAddBox /> All Donation Requests</NavLink></li>
                             <li><NavLink to='/dashboard/contentsmanagement'><FaBlogger /> Contents Management</NavLink></li>
+                            <li><NavLink to='/dashboard/myrequests'><MdAddBox /> My Donation Requests</NavLink></li>
+                            <li><NavLink to='/dashboard/createrequest'><FaNotesMedical /> Create Donation Request</NavLink></li>
                         </>:<>
+                            <li><NavLink to='/dashboard/profile'><FaUser></FaUser> My Profile</NavLink></li>
                             <li><NavLink to='/dashboard/donarhome'><FaUser></FaUser> My Dashboard</NavLink></li>
                             <li><NavLink to='/dashboard/myrequests'><MdAddBox /> My Donation Requests</NavLink></li>
                             <li><NavLink to='/dashboard/createrequest'><FaNotesMedical /> Create Donation Request</NavLink></li>

@@ -85,7 +85,7 @@ const RegisterPage = () => {
     }
     // console.log(errors);
     return (
-        <div className="bg-teal-50">
+        <div className="bg-teal-50 min-h-screen">
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md mb-4">Registration Page</h2>
             <div className="flex gap-5">
                 <div className="hidden md:block w-1/2 flex-1">
