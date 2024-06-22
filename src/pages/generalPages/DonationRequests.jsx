@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import usePendingRequests from "../../hooks/usePendingRequests";
 import noDataAnimation from "../../../public/noDataFound.json"
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet";
 
 const DonationRequests = () => {
     // const axiosSecure=useAxiosSecure()
@@ -60,6 +61,9 @@ const DonationRequests = () => {
     
     return (
         <div className="py-5 bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | Donation Requests</title>
+            </Helmet>
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">All Requests</h2>
             </div>

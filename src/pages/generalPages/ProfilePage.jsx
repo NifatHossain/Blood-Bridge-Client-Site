@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import useProfileInfo from "../../hooks/useProfileInfo";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from 'react-helmet';
 
 
 const imageHostingKey = import.meta.env.VITE_imageHostingKey
@@ -103,6 +104,9 @@ const ProfilePage = () => {
     // console.log(errors);
     return (
         <div className="bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | User Profile</title>
+            </Helmet>
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md mb-4 mt-10">My Profile</h2>
             <div className="flex gap-5">
                 {/* <div className="hidden md:block w-1/2 flex-1">

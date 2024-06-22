@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const imageHostingKey = import.meta.env.VITE_imageHostingKey
 const imageHostingApi= `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
@@ -42,6 +43,9 @@ const AddContent = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Blood Bridge | Add Content</title>
+            </Helmet>
             <div className="flex justify-center bg-teal-50 min-h-screen">
                 <div className="w-[60%]">
                     <form className="flex flex-col gap-3 w-full mt-7" onSubmit={handleSubmit(onSubmit)}>

@@ -7,6 +7,7 @@ import noDataAnimation from "../../../public/noDataFound.json"
 import useAllRequests from "../../hooks/useAllRequests";
 import useAdmin from "../../hooks/useAdmin";
 import useVolunteer from "../../hooks/useVolunteer";
+import { Helmet } from "react-helmet";
 
 const AllRequests = () => {
     const axiosSecure=useAxiosSecure()
@@ -67,6 +68,9 @@ const AllRequests = () => {
 
     return (
         <div className="py-5 bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | All Requests</title>
+            </Helmet>
             <div className="flex justify-center mt-8 md:mt-6">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">All Donation Requests</h2>
             </div>

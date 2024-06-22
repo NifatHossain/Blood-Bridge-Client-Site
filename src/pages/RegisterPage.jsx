@@ -6,6 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const imageHostingKey = import.meta.env.VITE_imageHostingKey
@@ -86,6 +87,9 @@ const RegisterPage = () => {
     // console.log(errors);
     return (
         <div className="bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | Registration</title>
+            </Helmet>
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md mb-4">Registration Page</h2>
             <div className="flex gap-5">
                 <div className="hidden md:block w-1/2 flex-1">

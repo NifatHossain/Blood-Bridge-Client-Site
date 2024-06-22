@@ -4,6 +4,7 @@ import { FaSackDollar } from "react-icons/fa6";
 import { MdBloodtype } from "react-icons/md";
 import useAllRequests from "../../hooks/useAllRequests";
 import useAllDonars from "../../hooks/useAllDonars";
+import { Helmet } from "react-helmet";
 
 
 const AdminHome = () => {
@@ -12,6 +13,9 @@ const AdminHome = () => {
     const [users]=useAllDonars()
     return (
         <div className="py-5 bg-teal-50 mt-10 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | Admin Home</title>
+            </Helmet>
             <div className="flex flex-col md:flex-row">
                 <div className="flex flex-1 mt-20 md:mt-0 justify-center items-center">
                     <h2 className="text-center text-2xl w-[60%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Welcome {user.displayName}</h2>

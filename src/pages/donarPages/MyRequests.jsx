@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import noDataAnimation from "../../../public/noDataFound.json"
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
 // import { useState } from "react";
 // import { useState } from "react";
 
@@ -79,6 +80,9 @@ const MyRequests = () => {
 
     return (
         <div className="py-5 bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | My Requests</title>
+            </Helmet>
             <div className="flex justify-center mt-8 md:mt-6">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">My Requests</h2>
             </div>

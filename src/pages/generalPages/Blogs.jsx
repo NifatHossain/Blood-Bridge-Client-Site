@@ -2,11 +2,15 @@ import Lottie from "lottie-react";
 import usePublishedArticles from "../../hooks/usePublishedArticles";
 import noDataAnimation from "../../../public/noDataFound.json"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Blogs = () => {
     const[articles]=usePublishedArticles()
     return (
         <div className="py-5 bg-teal-50 min-h-screen">
+            <Helmet>
+                <title>Blood Bridge | Blogs</title>
+            </Helmet>
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Blogs</h2>
             </div>

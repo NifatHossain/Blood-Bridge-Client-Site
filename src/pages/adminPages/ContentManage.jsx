@@ -7,6 +7,7 @@ import noDataAnimation from "../../../public/noDataFound.json"
 import useAdmin from "../../hooks/useAdmin";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ContentManage = () => {
     const[hide,setHide]=useState(false)
@@ -65,6 +66,9 @@ const ContentManage = () => {
     return (
         
         <div className="bg-teal-50">
+            <Helmet>
+                <title>Blood Bridge | Content Management</title>
+            </Helmet>
             <div className="py-5 mt-10 ">
                 <div className="flex flex-col md:flex-row justify-center gap-5">
                     <div className="flex justify-center w-[70%] mx-auto">

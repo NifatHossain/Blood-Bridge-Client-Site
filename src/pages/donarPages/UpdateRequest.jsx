@@ -7,6 +7,7 @@ import donationAnimation from "../../../public/bloodDonation.json"
 import Lottie from "lottie-react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAdmin from "../../hooks/useAdmin";
+import { Helmet } from "react-helmet";
 
 const UpdateRequest = () => {
     const [districts, setDistricts]=useState([])
@@ -70,6 +71,9 @@ const UpdateRequest = () => {
     }
     return (
         <div className="py-5 bg-teal-50">
+            <Helmet>
+                <title>Blood Bridge | Update Requests</title>
+            </Helmet>
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4">Update Donation Request</h2>
             </div>

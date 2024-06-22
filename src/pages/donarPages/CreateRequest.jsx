@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const CreateRequest = () => {
     const [districts, setDistricts]=useState([])
@@ -53,6 +54,9 @@ const CreateRequest = () => {
     }
     return (
         <div className="py-5 bg-teal-50">
+            <Helmet>
+                <title>Blood Bridge | Create Request</title>
+            </Helmet>
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4">Create new Request</h2>
             </div>

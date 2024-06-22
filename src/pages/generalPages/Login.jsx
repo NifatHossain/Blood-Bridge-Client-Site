@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -39,6 +40,9 @@ const Login = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Blood Bridge | Login Page</title>
+            </Helmet>
             <h2 className="text-center text-2xl font-semibold p-3 bg-slate-100 rounded-md ">Login Page</h2>
             <div className="flex items-center gap-5 bg-teal-50">
                 <div className="hidden md:block w-1/2 flex-1">
