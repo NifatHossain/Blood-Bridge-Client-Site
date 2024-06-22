@@ -20,7 +20,7 @@ const BlogsDetails = () => {
         navigate(location?.state? location.state:'/blogs')
     }
     return (
-        <div className="py-5 bg-teal-50 h-screen">
+        <div className="py-5 bg-teal-50 min-h-screen">
             <Helmet>
                 <title>Blood Bridge | Blog Details</title>
             </Helmet>

@@ -36,7 +36,7 @@ const SearchDonar = () => {
         setHide(false)
     }
     return (
-        <div className="py-5 bg-teal-50 h-screen">
+        <div className="py-5 bg-teal-50 min-h-screen">
             <div className="flex justify-center">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">Search Donar</h2>
             </div>

@@ -42,7 +42,7 @@ const AddContent = () => {
     }
     return (
         <div>
-            <div className="flex justify-center bg-teal-50 h-screen">
+            <div className="flex justify-center bg-teal-50 min-h-screen">
                 <div className="w-[60%]">
                     <form className="flex flex-col gap-3 w-full mt-7" onSubmit={handleSubmit(onSubmit)}>
                         <p className="text-slate-400">Enter Article Title: </p>

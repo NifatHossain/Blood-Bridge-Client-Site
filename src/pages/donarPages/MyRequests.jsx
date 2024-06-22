@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import noDataAnimation from "../../../public/noDataFound.json"
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+// import { useState } from "react";
 // import { useState } from "react";
 
 
@@ -25,7 +25,7 @@ const MyRequests = () => {
 
 
     const [requests,refetch]=useRequests()
-    const[filteredRequests, setFilteredRequests]=useState()
+    // const[filteredRequests, setFilteredRequests]=useState()
     // setReqData(requests)
     const navigate= useNavigate()
     const handleDelete=(id)=>{
@@ -72,13 +72,13 @@ const MyRequests = () => {
     }
     const onSubmit = (data) => {
         console.log(data)
-        setFilteredRequests
+        // setFilteredRequests
         // axiosSecure.get(`/getfilteredrequests?email=${user.email}&filter=${data.filterCondt}`)
         // .then(result=>setReqData(result.data))
     }
 
     return (
-        <div className="py-5 bg-teal-50 h-screen">
+        <div className="py-5 bg-teal-50 min-h-screen">
             <div className="flex justify-center mt-8 md:mt-6">
                 <h2 className="text-center text-2xl w-[70%] px-6 font-semibold p-3 bg-teal-300 rounded-md mb-4 text-white">My Requests</h2>
             </div>
