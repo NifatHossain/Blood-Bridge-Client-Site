@@ -18,7 +18,9 @@ const Navbar = () => {
                 Swal.fire({
                     title: "success",
                     text: "logout successfull",
-                    icon: "success"
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             })
             .catch((error)=>{

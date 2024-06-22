@@ -25,18 +25,41 @@ const RequestDetails = () => {
         const donarName=user.displayName;
         const donarEmail=user.email;
         const donarInfo={donarName,donarEmail}
-        axiosSecure.patch(`updaterequeststatus/${requestId}`,donarInfo)
-        .then(Result=>{
-            if(Result.data.modifiedCount>0){
-                Swal.fire({
-                title: "Request Accepted",
-                text: "Thank you for helping someone to survive!!",
-                icon: "success"
-                });
-                navigate('/')
-                
+        Swal.fire({
+            title: "Confirm Donation?",
+            text: `Name: ${donarName}  Email: ${donarEmail}`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2DD4BF",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirm!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`updaterequeststatus/${requestId}`,donarInfo)
+                .then(Result=>{
+                    if(Result.data.modifiedCount>0){
+                        Swal.fire({
+                        title: "Request Accepted",
+                        text: "Thank you for helping someone to survive!!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
+                        navigate('/')
+                        
+                    }
+                    else{
+                        Swal.fire({
+                            icon: "error",
+                            title: "Something went wrong",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                    }
+                })
             }
-        })
+          });
+        
     }
     return (
         <div className="py-5 bg-teal-50">
