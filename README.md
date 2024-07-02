@@ -32,7 +32,7 @@ React, MongoDB, Node js, Express, Firebase, JWT, React Axios, tanstack query,ver
 
 -> open command prompt in these two folders and run (npm i) to install the dependencies
 
--> create a .env.local file in root folder of client site code and your fireBase and ImageBB credentials
+-> create a .env.local file in root folder of client site code and setup your fireBase and ImageBB credentials
 
 example:
 VITE_apiKey=***
