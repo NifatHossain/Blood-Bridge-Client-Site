@@ -6,7 +6,7 @@ Admin Password: nN123456
 
 live site: https://bloodbridgelive.netlify.app/
 
-## Functionality
+## Features
 
 [Blood Bridge](https://bloodbridgelive.netlify.app/) is a demo website for connecting blood donors and Recipients
 
@@ -18,13 +18,16 @@ Admin can promote donors to volunteer or even promote to another admin. Admin ca
 
 Donors(users) can request for Blood and other donors can accept requests and donate blood. User who requested for blood can not accept his own request.
 
-Firebase was used to manage user authentication System.
-
-JWT(json wen token) was used to verify users and to secure database information.
-
-
-React Axios and tanstack query was used to easier and secure data manipulation.
-
 This Website is responsible for all devices.
 
-Server site is deployed on 'vercel' and live site is hosted on 'Netlify'
+## Technologies
+
+React, MongoDB, Node js, Express, Firebase, JWT, React Axios, tanstack query,vercel, Netlify
+
+## How to run Locally
+
+-> clone Blood-Bridge-Client-Site and Blood-Bridge-Server in you PC
+-> open command prompt in these two folders and run (npm i) to install the dependencies
+-> Install node, nodemon in you PC
+-> run (npm run dev) in the client site command prompt and open the link that you will get after running this command
+

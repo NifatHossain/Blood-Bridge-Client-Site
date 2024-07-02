@@ -144,12 +144,12 @@ const RegisterPage = () => {
                                 <option value="O-">O-</option>
                             </select>
                             {errors.blood_group && <p className="text-red-500">blood group required</p>}
-                            <input className="border-2 rounded-sm p-2" type="password" placeholder="password" {...register("password", {required: true, minLength:6, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/})} /> 
+                            <input className="border-2 rounded-sm p-2" type="password" placeholder="password" {...register("password", {required: true, minLength:8, pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/})} /> 
                             {errors.password?.type === "required" && (
                                 <p className="text-red-500">Password name is required</p>
                             )}
                             {errors.password?.type === "minLength" && (
-                                <p className="text-red-500">Password must contain 6 character</p>
+                                <p className="text-red-500">Password must contain atleast 8 character</p>
                             )}
                             {errors.password?.type === "pattern" && (
                                 <p className="text-red-500">Password must contain atleast a lower case, a uppercase and a number</p>
