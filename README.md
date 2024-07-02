@@ -27,7 +27,31 @@ React, MongoDB, Node js, Express, Firebase, JWT, React Axios, tanstack query,ver
 ## How to run Locally
 
 -> clone Blood-Bridge-Client-Site and Blood-Bridge-Server in you PC
--> open command prompt in these two folders and run (npm i) to install the dependencies
+
 -> Install node, nodemon in you PC
+
+-> open command prompt in these two folders and run (npm i) to install the dependencies
+
+-> create a .env.local file in root folder of client site code and your fireBase and ImageBB credentials
+
+example:
+VITE_apiKey=***
+
+VITE_authDomain=***
+
+VITE_projectId=***
+
+VITE_storageBucket=***
+
+VITE_messagingSenderId=***
+
+VITE_appId=***
+
+VITE_imageHostingKey=***
+
+->change baseurl from useAxiosPublic and useAxiosSecure hooks to http://localhost:5000
+
+-> run (nodemon index.js) in server site command prompt
+
 -> run (npm run dev) in the client site command prompt and open the link that you will get after running this command
 
