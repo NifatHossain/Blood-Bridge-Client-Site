@@ -49,6 +49,15 @@ VITE_appId=***
 
 VITE_imageHostingKey=***
 
+-> create a .env file in server site and setup mongodb credentials and jwt token 
+
+example:
+DB_USER=***
+
+DB_PASS=***
+
+ACCESS_TOKEN_SECRET=************************
+
 ->change baseurl from useAxiosPublic and useAxiosSecure hooks to http://localhost:5000
 
 -> run (nodemon index.js) in server site command prompt
