@@ -40,6 +40,9 @@ const ContactUs = () => {
                         <option value="O-">O-</option>
                     </select>
                     {errors.blood_group && <p className="text-red-500">blood group required</p>}
+                    <textarea type="text" className="border-2 rounded-sm p-2" placeholder="Your message" {...register("message", {required: true})} />
+                    {errors.message && <p className="text-red-500">Enter your message</p>}
+                    
                     <input type="submit"className="btn" />
             </form>
             
